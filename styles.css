@@ -1,4 +1,20 @@
-/* Sets all the text color to red! */
-body {
-    color: red;
+/* Style codeblock labels */
+.markdown-preview-view .codeblock-label {
+    display: inline-block;
+    font-family: var(--font-monospace);
+    color: var(--text-muted);
+    background: var(--background-modifier-border);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: 0;
+    padding: 0.25em 1.5em;
+    font-size: .75em;
+}
+
+/* Style codeblocks that come after a codeblock label
+ * - Removes margin and top-left border radius to connect to label
+ */
+:is(.markdown-preview-view .codeblock-label) + pre {
+    margin: 0;
+    border-top-left-radius: 0;
 }
