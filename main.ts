@@ -2,12 +2,10 @@ import { App, Editor, MarkdownPostProcessor, MarkdownPostProcessorContext, Markd
 
 interface CBLSettings {
 	showLanguageAsLabel: boolean;
-	forceReload: boolean;
 }
 
 const DEFAULT_SETTINGS: CBLSettings = {
 	showLanguageAsLabel: true,
-	forceReload: true,
 }
 
 const REGEX_CODEBLOCK_LABEL = /^```(?<lang>[^\s]+)?\s*(?:{(?<label>[^}]+)})?/
@@ -60,14 +58,6 @@ export default class CBLPlugin extends Plugin {
 			ctx.addChild(new MarkdownRenderChild(labelEl));
 		});
 
-		this.app.metadataCache.on("changed", file => {
-			if (!this.settings.forceReload) { return; }
-
-			// Reload the preview
-			var mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
-			mdView.previewMode.rerender(true);
-		});
-
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new CBLSettingTab(this.app, this));
 	}
@@ -107,16 +97,6 @@ class CBLSettingTab extends PluginSettingTab {
 				.setValue(this.plugin.settings.showLanguageAsLabel)
 				.onChange(async (value) => {
 					this.plugin.settings.showLanguageAsLabel = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(containerEl)
-			.setName('Force Reload on Source Change')
-			.setDesc('Forces the markdown preview to be reloaded whenever the markdown source is changed. This is required to pick up changes in the label, but may slow down obsidian by causing multiple reloads on some changes.')
-			.addToggle(tgl => tgl
-				.setValue(this.plugin.settings.forceReload)
-				.onChange(async (value) => {
-					this.plugin.settings.forceReload = value;
 					await this.plugin.saveSettings();
 				}));
 	}
