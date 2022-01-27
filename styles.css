@@ -1,5 +1,5 @@
 /* Style codeblock labels */
-.markdown-preview-view .codeblock-label {
+.codeblock-label {
     display: inline-block;
     font-family: var(--font-monospace);
     color: var(--text-muted);
@@ -14,7 +14,7 @@
 /* Style codeblocks that come after a codeblock label
  * - Removes margin and top-left border radius to connect to label
  */
-:is(.markdown-preview-view .codeblock-label) + pre {
+.codeblock-label + pre {
     margin: 0;
     border-top-left-radius: 0;
 }
