@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src/",
     "inlineSourceMap": true,
     "inlineSources": true,
     "module": "ESNext",
@@ -10,6 +10,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "isolatedModules": true,
+    "outDir": "out/",
     "lib": [
       "DOM",
       "ES5",

@@ -2,11 +2,11 @@
 
 This plugin renders labels for code blocks.
 
-![Demo of named codeblock](demo.gif)
+![Demo of named codeblock](docs/demo.gif)
 
 The plugin can also be optionally configured to show the language as a label, if no explicit label was set
 
-![Screenshot of language used as label](language-label.png)
+![Screenshot of language used as label](docs/language-label.png)
 
 Labels are assigned the "codeblock-label" class and so can be styled with CSS:
 
@@ -23,4 +23,4 @@ Labels are assigned the "codeblock-label" class and so can be styled with CSS:
 }
 ```
 
-![Screenshot of labeled codeblock with custom css](custom-css.png)
+![Screenshot of labeled codeblock with custom css](docs/custom-css.png)
