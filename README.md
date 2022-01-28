@@ -47,3 +47,7 @@ To manually fix this, just make a change to any other part of the code block and
 Currently this plugin does not support live preview.
 The live preview works in a significantly different way than the "normal" preview, and I don't personally use live preview so have little incentive to make it work.
 I'd be more than happy to accept a pull request though if anyone wants to take a look at it!
+
+## Credit
+
+This plugin is based off of the template plugin here https://github.com/obsidianmd/obsidian-sample-plugin
